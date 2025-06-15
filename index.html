@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Learning Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>English Learning Hub</h1>
+      <p>Your comprehensive guide to mastering English in 3 months</p>
+      <nav>
+        <a href="#plan"><i class="fas fa-calendar-alt"></i> Plan</a>
+        <a href="#videos"><i class="fas fa-video"></i> Video links </a>
+        <a href="#books"><i class="fas fa-book"></i> Books</a>
+          <a href="#playlist"><i class="fas fa-book"></i> playlist</a>
+      <button class="theme-toggle" aria-label="Toggle theme">
+      <span class="theme-icon">☀</span>
+      </button>
+       
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <section id="plan">
+      <h2>Learning Plan</h2>
+      <div class="goal-card">
+        <p>Goal: Achieve intermediate English proficiency in 3 months</p>
+      </div>
+      
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress" id="learningProgress"></div>
+        </div>
+        <div class="progress-text">
+          <span> 1 week</span>
+          <span></span>
+        </div>
+      </div>
+      
+      <ul>
+        <li><strong>first month </strong>25% </li>
+        <li><strong>second month</strong> 30%</li>
+        <li><strong>third month</strong> 45%</li>
+      </ul>
+      <p>
+         <strong>INDHO</strong> xiita hal malin ha jarin 😭😭😂
+      </p>
+    </section>
+
+    <section id="videos">
+      <h2>Video Playlist links </h2>
+      <p>Watch these curated videos to improve your listening and pronunciation skills:</p>
+      <div class="pic-container">
+        <a>
+        <img src="download.jpeg" height="auto" width="400px">
+        </a>
+      </div>
+        
+    </section>
+    <section id="books">
+        <div class="pdf">
+        <h2>4000 essecial words edition 1</h2>
+        <p>read the book to enhance your vocabulary:</p>
+        <a href="https://learning-bath.tiiny.site">READ</a>
+
+        </div>
+    </section>
+    <section id="playlist">
+        <div class="playlist">
+        <h2>Playlist</h2>
+        <p>Watch the playlist to improve your listening skills:</p>
+        <a href=" https://www.youtube.com/watch?v=u3Bh78fKu0Q&list=PL60Dx6nQgiwdepCaaLC1uzKbvQ9C8o19W ">WATCH</a>
+        </div>
+    </section>
+
+    <section >
+      <h2>Recommended Books</h2>
+      <p>Download these resources to enhance your learning:</p>
+      <div class="book-card">
+        <i class="fas fa-book-open"></i>
+        <a href="https://learning-bath.tiiny.site" onclick="downloadAlert()">4000 essecial words edition 1</a>
+        <button class="download-btn" onclick="downloadAlert()"><i class="fas fa-download"></i> Download</button>
+      </div>
+      <div class="book-card">
+        <i class="fas fa-book-open"></i>
+        <a href="#" onclick="downloadAlert()">4000 essecial words edition 2</a>
+        <button class="download-btn" onclick="downloadAlert()"><i class="fas fa-download"></i> Download</button>
+      </div>
+      <div class="book-card">
+        <i class="fas fa-book-open"></i>
+        <a href="#" onclick="downloadAlert()">4000 essecial words edition 3</a>
+        <button class="download-btn" onclick="downloadAlert()"><i class="fas fa-download"></i> Download</button>
+      </div>
+    </section>
+
+  
+
+    <section id="ai">
+      <h2>AI Learning Assistant</h2>
+      <div class="ai-card">
+        <p>Not sure what to study next? Get personalized recommendations based on your progress.</p>
+        <button onclick="suggestNext()"><i class="fas fa-lightbulb"></i> What should I study next?</button>
+        <p id="suggestion"></p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2023 English Learning Hub | Designed for English Learners</p>
+      <div style="margin-top: 1rem;">
+        <a href="#" style="color: #666; margin: 0 0.5rem;"><i class="fab fa-facebook"></i></a>
+        <a href="#" style="color: #666; margin: 0 0.5rem;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color: #666; margin: 0 0.5rem;"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    
+    // Initialize progress bar
+    document.addEventListener('DOMContentLoaded', function() {
+      // Simulate 25% progress for demo purposes
+      document.getElementById('learningProgress').style.width = '25%';
+    });
+    
+
+    function checkAnswer() {
+      const input = document.getElementById("blankInput").value.trim().toLowerCase();
+      const feedback = document.getElementById("feedback");
+      
+      if (input === "go") {
+        feedback.textContent = "✅ Correct! 'I go to school every morning.' is the right answer.";
+        feedback.className = "correct";
+      } else {
+        feedback.textContent = "❌ Try again. Hint: It's a simple present tense verb.";
+        feedback.className = "incorrect";
+      }
+    }
+    
+    function checkRadioAnswer() {
+      const selected = document.querySelector('input[name="verb"]:checked');
+      const feedback = document.getElementById("radioFeedback");
+      
+      if (!selected) {
+        feedback.textContent = "⚠️ Please select an answer first.";
+        feedback.className = "incorrect";
+        return;
+      }
+      
+      if (selected.value === "went") {
+        feedback.textContent = "✅ Excellent! 'She went to the store yesterday.' is correct because we use past simple for completed actions in the past.";
+        feedback.className = "correct";
+      } else {
+        feedback.textContent = "❌ Not quite right. Remember, 'yesterday' indicates we need past tense.";
+        feedback.className = "incorrect";
+      }
+    }
+
+    function suggestNext() {
+      const suggestions = [
+        "Review 10 new vocabulary words from Week 1 materials.",
+        "Watch the 'Common English Phrases' video in our playlist.",
+        "Practice speaking about your daily routine for 5 minutes.",
+        "Read one chapter from the Basic English Grammar book.",
+        "Write 5 sentences using the present continuous tense.",
+        "Listen to an English podcast and summarize what you heard.",
+        "Practice the irregular verbs list for 10 minutes."
+      ];
+      const pick = suggestions[Math.floor(Math.random() * suggestions.length)];
+      const suggestionElement = document.getElementById("suggestion");
+      
+      // Add typing animation
+      suggestionElement.textContent = "";
+      let i = 0;
+      const typing = setInterval(() => {
+        if (i < pick.length) {
+          suggestionElement.textContent += pick.charAt(i);
+          i++;
+        } else {
+          clearInterval(typing);
+        }
+      }, 30);
+    }
+    const toggleBtn = document.querySelector('.theme-toggle');
+const themeIcon = toggleBtn.querySelector('.theme-icon');
+const html = document.documentElement;
+
+toggleBtn.addEventListener('click', () => {
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  themeIcon.textContent = isDark ? '☀' : '🌙';
+});
+    
+    
+  </script>
+</body>
+</html>
